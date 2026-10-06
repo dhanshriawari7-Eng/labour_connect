@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +15,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
                     colors: {
                         primary: '#F97316',
                         secondary: '#2563EB',
@@ -43,30 +43,35 @@
             border: 1px solid #E5E7EB;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
-        .input-clean {
+        .input-glass {
             background: #F9FAFB;
             border: 1px solid #E5E7EB;
             color: #1F2937;
             transition: border-color 0.2s;
         }
-        .input-clean:focus {
+        .input-glass:focus {
             border-color: #2563EB;
             background: #FFFFFF;
             outline: none;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-50 via-white to-orange-50 min-h-screen text-gray-700 font-sans antialiased pb-20 md:pb-0 selection:bg-primary selection:text-white">
+<body class="bg-[#0B0F19] min-h-screen text-slate-300 font-sans antialiased pb-20 md:pb-0 selection:bg-primary selection:text-white relative">
+
+    <!-- Animated Background Blobs -->
+    <div class="absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-screen filter blur-[100px] opacity-10 animate-pulse z-0 pointer-events-none"></div>
+    <div class="absolute bottom-0 -right-4 w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] opacity-10 animate-pulse z-0 pointer-events-none"></div>
+    
 
     <!-- Mobile Header -->
-    <div class="md:hidden flex items-center justify-between p-4 border-b border-gray-200 bg-white sticky top-0 z-40">
+    <div class="md:hidden flex items-center justify-between p-4 border-b border-gray-200 bg-[#0B0F19]/80 backdrop-blur-md sticky border-white/10 top-0 z-40">
         <div class="flex items-center gap-2">
             <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
                 <i class="fa-solid fa-toolbox text-sm"></i>
             </div>
-            <span class="font-bold text-gray-900">Labour<span class="text-primary">Connect</span></span>
+            <span class="font-bold text-white">Labour<span class="text-primary">Connect</span></span>
         </div>
-        <button onclick="document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebarOverlay').classList.remove('hidden'); setTimeout(()=>document.getElementById('sidebarOverlay').classList.add('opacity-100'), 10);" class="text-gray-600 text-xl">
+        <button onclick="document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebarOverlay').classList.remove('hidden'); setTimeout(()=>document.getElementById('sidebarOverlay').classList.add('opacity-100'), 10);" class="text-slate-400 text-xl">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
@@ -83,34 +88,34 @@
                 <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shadow-md">
                     <i class="fa-solid fa-toolbox"></i>
                 </div>
-                <span class="text-xl font-bold text-gray-900">Labour<span class="text-primary">Connect</span></span>
+                <span class="text-xl font-bold text-white">Labour<span class="text-primary">Connect</span></span>
             </div>
 
             <nav class="flex-1 px-4 mt-8 overflow-y-auto space-y-1">
-                <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 px-3">Menu</div>
+                <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 px-3">Menu</div>
                 
-                <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm mb-1" onclick="window.location.href='dashboard.html'">
+                <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm mb-1" onclick="window.location.href='dashboard.html'">
                     <i class="fa-solid fa-chart-pie w-5 text-center"></i> Dashboard
                 </button>
                 
                 <div id="clientMenu" class="hidden space-y-1">
-                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm" onclick="window.location.href='labourers.html'">
+                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm" onclick="window.location.href='labourers.html'">
                         <i class="fa-solid fa-magnifying-glass w-5 text-center"></i> Find Professionals
                     </button>
-                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm" onclick="window.location.href='projects.html'">
+                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm" onclick="window.location.href='projects.html'">
                         <i class="fa-solid fa-clipboard-list w-5 text-center"></i> My Projects
                     </button>
                 </div>
                 
                 <div id="labourerMenu" class="hidden space-y-1">
-                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm" onclick="window.location.href='projects.html'">
+                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm" onclick="window.location.href='projects.html'">
                         <i class="fa-solid fa-briefcase w-5 text-center"></i> Find Jobs
                     </button>
                 </div>
 
                 <div class="mt-6">
-                    <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 px-3">Settings</div>
-                    <button class="side-link active w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm" onclick="window.location.href='profile.html'">
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 px-3">Settings</div>
+                    <button class="side-link active w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm" onclick="window.location.href='profile.html'">
                         <i class="fa-solid fa-user w-5 text-center"></i> My Profile
                     </button>
                 </div>
@@ -128,8 +133,8 @@
             <div class="max-w-3xl mx-auto">
                 
                 <header class="mb-8">
-                    <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">My Profile</h1>
-                    <p class="text-gray-500 text-sm">Manage your personal and professional information.</p>
+                    <h1 class="text-3xl font-extrabold text-white tracking-tight mb-2">My Profile</h1>
+                    <p class="text-slate-400 text-sm">Manage your personal and professional information.</p>
                 </header>
 
                 <div class="profile-card rounded-2xl overflow-hidden">
@@ -147,22 +152,22 @@
                     <div class="pt-14 p-8">
                         <!-- Basic Info (Read Only for demo) -->
                         <div class="mb-10">
-                            <h3 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2"><i class="fa-regular fa-id-card text-primary"></i> Account Details</h3>
+                            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2"><i class="fa-regular fa-id-card text-primary"></i> Account Details</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                                    <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Full Name</span>
-                                    <span class="text-gray-900 font-semibold" id="pName">Loading...</span>
+                                    <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Full Name</span>
+                                    <span class="text-white font-semibold" id="pName">Loading...</span>
                                 </div>
                                 <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                                    <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Email</span>
-                                    <span class="text-gray-900 font-semibold" id="pEmail">Loading...</span>
+                                    <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Email</span>
+                                    <span class="text-white font-semibold" id="pEmail">Loading...</span>
                                 </div>
                                 <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                                    <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Mobile</span>
-                                    <span class="text-gray-900 font-semibold" id="pMobile">Loading...</span>
+                                    <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Mobile</span>
+                                    <span class="text-white font-semibold" id="pMobile">Loading...</span>
                                 </div>
                                 <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                                    <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Account Type</span>
+                                    <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Account Type</span>
                                     <span class="inline-block px-2.5 py-1 rounded-md bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold" id="pRole">Loading...</span>
                                 </div>
                             </div>
@@ -170,36 +175,36 @@
 
                         <!-- Professional Profile Form -->
                         <div id="labourerSection" class="hidden border-t border-gray-200 pt-8">
-                            <h3 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2"><i class="fa-solid fa-wrench text-primary"></i> Professional Profile</h3>
+                            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2"><i class="fa-solid fa-wrench text-primary"></i> Professional Profile</h3>
                             
                             <form onsubmit="saveLabourerProfile(event)" class="space-y-5">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Primary Service</label>
+                                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Primary Service</label>
                                         <div class="relative">
-                                            <i class="fa-solid fa-hammer absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                                            <input type="text" id="lSkill" placeholder="e.g. Electrician, Painter" class="input-clean w-full rounded-xl pl-11 pr-4 py-3 text-sm" required>
+                                            <i class="fa-solid fa-hammer absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                                            <input type="text" id="lSkill" placeholder="e.g. Electrician, Painter" class="input-glass w-full rounded-xl pl-11 pr-4 py-3 text-sm" required>
                                         </div>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Location</label>
+                                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Location</label>
                                         <div class="relative">
-                                            <i class="fa-solid fa-location-dot absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                                            <input type="text" id="lLocation" placeholder="e.g. Mumbai" class="input-clean w-full rounded-xl pl-11 pr-4 py-3 text-sm" required>
+                                            <i class="fa-solid fa-location-dot absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                                            <input type="text" id="lLocation" placeholder="e.g. Mumbai" class="input-glass w-full rounded-xl pl-11 pr-4 py-3 text-sm" required>
                                         </div>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Years of Experience</label>
+                                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Years of Experience</label>
                                         <div class="relative">
-                                            <i class="fa-solid fa-calendar-days absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                                            <input type="number" id="lExp" placeholder="0" class="input-clean w-full rounded-xl pl-11 pr-4 py-3 text-sm" required>
+                                            <i class="fa-solid fa-calendar-days absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                                            <input type="number" id="lExp" placeholder="0" class="input-glass w-full rounded-xl pl-11 pr-4 py-3 text-sm" required>
                                         </div>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Daily Rate (₹)</label>
+                                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Daily Rate (₹)</label>
                                         <div class="relative">
-                                            <i class="fa-solid fa-indian-rupee-sign absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                                            <input type="number" id="lRate" placeholder="e.g. 500" class="input-clean w-full rounded-xl pl-11 pr-4 py-3 text-sm" required>
+                                            <i class="fa-solid fa-indian-rupee-sign absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                                            <input type="number" id="lRate" placeholder="e.g. 500" class="input-glass w-full rounded-xl pl-11 pr-4 py-3 text-sm" required>
                                         </div>
                                     </div>
                                 </div>
@@ -261,19 +266,19 @@
     <!-- Mobile Bottom Navigation -->
     <nav id="mobileNav" class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-xl border-t border-white/50 shadow-[0_-10px_40px_rgba(0,0,0,0.08)] z-50 pb-safe">
         <div class="flex justify-around items-center p-2">
-            <a href="dashboard.html" id="nav-dashboard" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+            <a href="dashboard.html" id="nav-dashboard" class="mobile-nav-link flex flex-col items-center p-2 text-slate-500 hover:text-primary transition-colors">
                 <i class="fa-solid fa-chart-pie text-xl mb-1"></i>
                 <span class="text-[10px] font-bold">Home</span>
             </a>
-            <a href="labourers.html" id="nav-labourers" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+            <a href="labourers.html" id="nav-labourers" class="mobile-nav-link flex flex-col items-center p-2 text-slate-500 hover:text-primary transition-colors">
                 <i class="fa-solid fa-magnifying-glass text-xl mb-1"></i>
                 <span class="text-[10px] font-bold">Search</span>
             </a>
-            <a href="projects.html" id="nav-projects" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+            <a href="projects.html" id="nav-projects" class="mobile-nav-link flex flex-col items-center p-2 text-slate-500 hover:text-primary transition-colors">
                 <i class="fa-solid fa-briefcase text-xl mb-1"></i>
                 <span class="text-[10px] font-bold">Jobs</span>
             </a>
-            <a href="profile.html" id="nav-profile" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+            <a href="profile.html" id="nav-profile" class="mobile-nav-link flex flex-col items-center p-2 text-slate-500 hover:text-primary transition-colors">
                 <i class="fa-solid fa-user text-xl mb-1"></i>
                 <span class="text-[10px] font-bold">Profile</span>
             </a>
@@ -288,7 +293,7 @@
             const page = path.split('/').pop() || 'dashboard.html';
             const activeLink = document.querySelector(`.mobile-nav-link[href="${page}"]`);
             if(activeLink) {
-                activeLink.classList.remove('text-gray-400');
+                activeLink.classList.remove('text-slate-500');
                 activeLink.classList.add('text-primary');
             }
             

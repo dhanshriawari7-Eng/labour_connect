@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +15,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
                     colors: {
                         primary: '#F97316',
                         secondary: '#2563EB',
@@ -49,33 +49,42 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
         .clean-form {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+
             background: #FFFFFF;
             border: 1px solid #E5E7EB;
         }
-        .input-clean {
+        .input-glass {
             background: #F9FAFB;
             border: 1px solid #E5E7EB;
             color: #1F2937;
             transition: border-color 0.2s;
         }
-        .input-clean:focus {
+        .input-glass:focus {
             border-color: #2563EB;
             background: #FFFFFF;
             outline: none;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-50 via-white to-orange-50 min-h-screen text-gray-700 font-sans antialiased pb-20 md:pb-0 selection:bg-primary selection:text-white">
+<body class="bg-[#0B0F19] min-h-screen text-slate-300 font-sans antialiased pb-20 md:pb-0 selection:bg-primary selection:text-white relative">
+
+    <!-- Animated Background Blobs -->
+    <div class="absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-screen filter blur-[100px] opacity-10 animate-pulse z-0 pointer-events-none"></div>
+    <div class="absolute bottom-0 -right-4 w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] opacity-10 animate-pulse z-0 pointer-events-none"></div>
+    
 
     <!-- Mobile Header -->
-    <div class="md:hidden flex items-center justify-between p-4 border-b border-gray-200 bg-white sticky top-0 z-40">
+    <div class="md:hidden flex items-center justify-between p-4 border-b border-gray-200 bg-[#0B0F19]/80 backdrop-blur-md sticky border-white/10 top-0 z-40">
         <div class="flex items-center gap-2">
             <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
                 <i class="fa-solid fa-toolbox text-sm"></i>
             </div>
-            <span class="font-bold text-gray-900">Labour<span class="text-primary">Connect</span></span>
+            <span class="font-bold text-white">Labour<span class="text-primary">Connect</span></span>
         </div>
-        <button onclick="document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebarOverlay').classList.remove('hidden'); setTimeout(()=>document.getElementById('sidebarOverlay').classList.add('opacity-100'), 10);" class="text-gray-600 text-xl">
+        <button onclick="document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebarOverlay').classList.remove('hidden'); setTimeout(()=>document.getElementById('sidebarOverlay').classList.add('opacity-100'), 10);" class="text-slate-400 text-xl">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
@@ -92,34 +101,34 @@
                 <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shadow-md">
                     <i class="fa-solid fa-toolbox"></i>
                 </div>
-                <span class="text-xl font-bold text-gray-900">Labour<span class="text-primary">Connect</span></span>
+                <span class="text-xl font-bold text-white">Labour<span class="text-primary">Connect</span></span>
             </div>
 
             <nav class="flex-1 px-4 mt-8 overflow-y-auto space-y-1">
-                <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 px-3">Menu</div>
+                <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 px-3">Menu</div>
                 
-                <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm mb-1" onclick="window.location.href='dashboard.html'">
+                <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm mb-1" onclick="window.location.href='dashboard.html'">
                     <i class="fa-solid fa-chart-pie w-5 text-center"></i> Dashboard
                 </button>
                 
                 <div id="clientMenu" class="hidden space-y-1">
-                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm" onclick="window.location.href='labourers.html'">
+                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm" onclick="window.location.href='labourers.html'">
                         <i class="fa-solid fa-magnifying-glass w-5 text-center"></i> Find Professionals
                     </button>
-                    <button class="side-link active w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm" onclick="window.location.href='projects.html'">
+                    <button class="side-link active w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm" onclick="window.location.href='projects.html'">
                         <i class="fa-solid fa-clipboard-list w-5 text-center"></i> My Projects
                     </button>
                 </div>
                 
                 <div id="labourerMenu" class="hidden space-y-1">
-                    <button class="side-link active w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm" onclick="window.location.href='projects.html'">
+                    <button class="side-link active w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm" onclick="window.location.href='projects.html'">
                         <i class="fa-solid fa-briefcase w-5 text-center"></i> Find Jobs
                     </button>
                 </div>
 
                 <div class="mt-6">
-                    <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 px-3">Settings</div>
-                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-gray-600 font-semibold text-sm" onclick="window.location.href='profile.html'">
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 px-3">Settings</div>
+                    <button class="side-link w-full flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-semibold text-sm" onclick="window.location.href='profile.html'">
                         <i class="fa-solid fa-user w-5 text-center"></i> My Profile
                     </button>
                 </div>
@@ -138,8 +147,8 @@
                 
                 <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                     <div>
-                        <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight mb-1">Projects</h1>
-                        <p class="text-gray-500 text-sm">Manage your task listings and job applications.</p>
+                        <h1 class="text-3xl font-extrabold text-white tracking-tight mb-1">Projects</h1>
+                        <p class="text-slate-400 text-sm">Manage your task listings and job applications.</p>
                     </div>
                     <button id="btnCreateProject" class="hidden bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-xl font-bold transition-all shadow-md whitespace-nowrap" onclick="toggleProjectForm()">
                         <i class="fa-solid fa-plus mr-2"></i> Post New Project
@@ -148,37 +157,37 @@
 
                 <!-- Create Project Form -->
                 <div id="projectForm" class="hidden clean-form rounded-2xl p-6 shadow-md mb-10 border-t-4 border-t-primary animate-[fadeIn_0.3s_ease-out]">
-                    <h3 class="text-xl font-bold text-gray-900 mb-6">Create New Project</h3>
+                    <h3 class="text-xl font-bold text-white mb-6">Create New Project</h3>
                     <form onsubmit="createProject(event)" class="space-y-4">
                         <div>
-                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Project Title</label>
-                            <input type="text" id="pTitle" placeholder="e.g. Living Room Painting" class="input-clean w-full rounded-xl px-4 py-3 text-sm" required>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Project Title</label>
+                            <input type="text" id="pTitle" placeholder="e.g. Living Room Painting" class="input-glass w-full rounded-xl px-4 py-3 text-sm" required>
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Description</label>
-                            <textarea id="pDesc" placeholder="Describe the work required in detail..." rows="3" class="input-clean w-full rounded-xl px-4 py-3 text-sm" required></textarea>
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Description</label>
+                            <textarea id="pDesc" placeholder="Describe the work required in detail..." rows="3" class="input-glass w-full rounded-xl px-4 py-3 text-sm" required></textarea>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Project Category</label>
-                                <input type="text" id="pType" placeholder="e.g. Painting, Electrical" class="input-clean w-full rounded-xl px-4 py-3 text-sm" required>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Project Category</label>
+                                <input type="text" id="pType" placeholder="e.g. Painting, Electrical" class="input-glass w-full rounded-xl px-4 py-3 text-sm" required>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Location</label>
-                                <input type="text" id="pLocation" placeholder="City or area" class="input-clean w-full rounded-xl px-4 py-3 text-sm" required>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Location</label>
+                                <input type="text" id="pLocation" placeholder="City or area" class="input-glass w-full rounded-xl px-4 py-3 text-sm" required>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Budget (₹)</label>
-                                <input type="number" id="pBudget" placeholder="Total budget" class="input-clean w-full rounded-xl px-4 py-3 text-sm" required>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Budget (₹)</label>
+                                <input type="number" id="pBudget" placeholder="Total budget" class="input-glass w-full rounded-xl px-4 py-3 text-sm" required>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Start Date</label>
-                                <input type="date" id="pStartDate" class="input-clean w-full rounded-xl px-4 py-3 text-sm text-gray-700" required>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Start Date</label>
+                                <input type="date" id="pStartDate" class="input-glass w-full rounded-xl px-4 py-3 text-sm text-slate-200" required>
                             </div>
                         </div>
                         <div class="flex gap-3 pt-4">
                             <button type="submit" class="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-xl font-bold transition-all shadow-md">Post Project</button>
-                            <button type="button" class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-8 py-3 rounded-xl font-bold transition-all" onclick="toggleProjectForm()">Cancel</button>
+                            <button type="button" class="bg-white border border-gray-300 hover:bg-gray-50 text-slate-200 px-8 py-3 rounded-xl font-bold transition-all" onclick="toggleProjectForm()">Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -186,7 +195,7 @@
                 <!-- Projects Grid -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="projectsGrid">
                     <!-- Loading state -->
-                    <div class="col-span-full text-center py-12 text-gray-400">
+                    <div class="col-span-full text-center py-12 text-slate-500">
                         <i class="fa-solid fa-spinner fa-spin text-3xl mb-3 text-primary"></i>
                         <p>Loading projects...</p>
                     </div>
@@ -194,15 +203,15 @@
 
                 <!-- Applications Modal -->
                 <div id="applicationsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm">
-                    <div class="bg-white w-full max-w-2xl rounded-2xl p-6 shadow-2xl relative max-h-[90vh] flex flex-col border border-gray-200">
-                        <button onclick="closeApplicationsModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition-colors w-8 h-8 rounded-lg flex items-center justify-center bg-gray-100 hover:bg-gray-200">
+                    <div class="bg-[#0B0F19]/90 backdrop-blur-xl border-white/10 w-full text-white max-w-2xl rounded-2xl p-6 shadow-2xl relative max-h-[90vh] flex flex-col border border-gray-200">
+                        <button onclick="closeApplicationsModal()" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors w-8 h-8 rounded-lg flex items-center justify-center bg-gray-100 hover:bg-gray-200">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Project Applications</h3>
-                        <p class="text-gray-500 text-sm mb-6 pb-4 border-b border-gray-200">Review and accept professionals for this project.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Project Applications</h3>
+                        <p class="text-slate-400 text-sm mb-6 pb-4 border-b border-gray-200">Review and accept professionals for this project.</p>
                         
                         <div id="applicationsList" class="flex-1 overflow-y-auto space-y-4 pr-2">
-                            <div class="text-center py-8 text-gray-500">Loading applications...</div>
+                            <div class="text-center py-8 text-slate-400">Loading applications...</div>
                         </div>
                     </div>
                 </div>
@@ -212,7 +221,7 @@
                     <h2 class="text-xl font-extrabold text-navy-text tracking-tight mb-4">My Applications</h2>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="myApplicationsGrid">
                         <!-- Loading state -->
-                        <div class="col-span-full text-center py-12 text-gray-400">
+                        <div class="col-span-full text-center py-12 text-slate-500">
                             <i class="fa-solid fa-spinner fa-spin text-3xl mb-3 text-primary"></i>
                             <p>Loading your applications...</p>
                         </div>
@@ -305,7 +314,7 @@
                 grid.innerHTML = '';
 
                 if (applications.length === 0) {
-                    grid.innerHTML = '<div class="col-span-full text-center py-8 bg-white rounded-2xl border border-gray-200"><i class="fa-solid fa-file-signature text-3xl text-gray-300 mb-3"></i><p class="text-gray-500 text-sm">You have not applied to any projects yet.</p></div>';
+                    grid.innerHTML = '<div class="col-span-full text-center py-8 bg-white rounded-2xl border border-gray-200"><i class="fa-solid fa-file-signature text-3xl text-gray-300 mb-3"></i><p class="text-slate-400 text-sm">You have not applied to any projects yet.</p></div>';
                     return;
                 }
 
@@ -319,11 +328,11 @@
                     card.innerHTML = `
                         <div>
                             <div class="flex justify-between items-start mb-2 gap-4">
-                                <h3 class="text-base font-bold text-gray-900">${app.project.title}</h3>
+                                <h3 class="text-base font-bold text-white">${app.project.title}</h3>
                                 <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${statusColor}">${app.status}</span>
                             </div>
-                            <p class="text-gray-500 text-xs mb-3"><i class="fa-solid fa-location-dot mr-1"></i> ${app.project.location}</p>
-                            <p class="text-gray-600 text-sm italic border-l-2 border-primary pl-2 mb-3">" ${app.message} "</p>
+                            <p class="text-slate-400 text-xs mb-3"><i class="fa-solid fa-location-dot mr-1"></i> ${app.project.location}</p>
+                            <p class="text-slate-400 text-sm italic border-l-2 border-primary pl-2 mb-3">" ${app.message} "</p>
                         </div>
                     `;
                     grid.appendChild(card);
@@ -339,14 +348,14 @@
             grid.innerHTML = '';
 
             if (projects.length === 0) {
-                grid.innerHTML = '<div class="col-span-full text-center py-12 bg-white rounded-2xl border border-gray-200"><i class="fa-solid fa-folder-open text-4xl text-gray-300 mb-4"></i><p class="text-gray-500 font-medium">No projects found.</p></div>';
+                grid.innerHTML = '<div class="col-span-full text-center py-12 bg-white rounded-2xl border border-gray-200"><i class="fa-solid fa-folder-open text-4xl text-gray-300 mb-4"></i><p class="text-slate-400 font-medium">No projects found.</p></div>';
                 return;
             }
 
             projects.forEach(p => {
                 let actions = '';
                 if (isClient) {
-                    actions = `<button class="w-full sm:w-auto bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary px-5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-sm" onclick="viewApplications(${p.id})">View Applications</button>`;
+                    actions = `<button class="w-full sm:w-auto bg-white border border-gray-300 text-slate-200 hover:border-primary hover:text-primary px-5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-sm" onclick="viewApplications(${p.id})">View Applications</button>`;
                 } else {
                     actions = `<button class="w-full sm:w-auto bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-md" onclick="applyToProject(${p.id})">Apply Now</button>`;
                 }
@@ -361,20 +370,20 @@
                 card.innerHTML = `
                     <div>
                         <div class="flex justify-between items-start mb-4 gap-4">
-                            <h3 class="text-lg font-bold text-gray-900">${p.title}</h3>
+                            <h3 class="text-lg font-bold text-white">${p.title}</h3>
                             <span class="px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider border ${statusColor}">${p.status}</span>
                         </div>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">${p.description}</p>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">${p.description}</p>
                         
-                        <div class="grid grid-cols-2 gap-y-3 gap-x-2 text-sm text-gray-500 font-medium mb-6">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot w-4 text-center text-gray-400"></i> ${p.location}</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-layer-group w-4 text-center text-gray-400"></i> ${p.projectType}</div>
-                            <div class="flex items-center gap-2 col-span-2"><i class="fa-solid fa-calendar w-4 text-center text-gray-400"></i> Starts: <span class="text-gray-700 ml-1 font-semibold">${p.startDate}</span></div>
+                        <div class="grid grid-cols-2 gap-y-3 gap-x-2 text-sm text-slate-400 font-medium mb-6">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot w-4 text-center text-slate-500"></i> ${p.location}</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-layer-group w-4 text-center text-slate-500"></i> ${p.projectType}</div>
+                            <div class="flex items-center gap-2 col-span-2"><i class="fa-solid fa-calendar w-4 text-center text-slate-500"></i> Starts: <span class="text-slate-200 ml-1 font-semibold">${p.startDate}</span></div>
                         </div>
                     </div>
                     
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-gray-100">
-                        <div class="text-2xl font-extrabold text-gray-900 whitespace-nowrap">₹${p.budget.toLocaleString()}</div>
+                        <div class="text-2xl font-extrabold text-white whitespace-nowrap">₹${p.budget.toLocaleString()}</div>
                         ${actions}
                     </div>
                 `;
@@ -407,14 +416,14 @@
         async function viewApplications(projectId) {
             document.getElementById('applicationsModal').classList.remove('hidden');
             const list = document.getElementById('applicationsList');
-            list.innerHTML = '<div class="text-center py-8 text-gray-500"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2 text-primary"></i><p>Loading applications...</p></div>';
+            list.innerHTML = '<div class="text-center py-8 text-slate-400"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2 text-primary"></i><p>Loading applications...</p></div>';
 
             try {
                 const applications = await apiRequest(`/applications/project/${projectId}`);
                 list.innerHTML = '';
                 
                 if (applications.length === 0) {
-                    list.innerHTML = '<div class="text-center py-8 text-gray-500"><i class="fa-solid fa-file-signature text-3xl mb-3 text-gray-300"></i><p class="font-medium">No applications yet.</p></div>';
+                    list.innerHTML = '<div class="text-center py-8 text-slate-400"><i class="fa-solid fa-file-signature text-3xl mb-3 text-gray-300"></i><p class="font-medium">No applications yet.</p></div>';
                     return;
                 }
 
@@ -428,15 +437,15 @@
                         <div class="flex gap-4 items-start">
                             <img src="https://i.pravatar.cc/150?u=${app.labourer.id}" class="w-12 h-12 rounded-full border border-gray-200 object-cover">
                             <div>
-                                <h4 class="font-bold text-gray-900">${app.labourer.name}</h4>
-                                <p class="text-sm text-gray-600 mt-1 italic">"${app.message}"</p>
+                                <h4 class="font-bold text-white">${app.labourer.name}</h4>
+                                <p class="text-sm text-slate-400 mt-1 italic">"${app.message}"</p>
                                 <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${statusColor}">${app.status}</span>
                             </div>
                         </div>
                         <div class="flex gap-2 w-full md:w-auto mt-2 md:mt-0">
                             ${app.status === 'PENDING' ? `
                                 <button onclick="updateApplicationStatus(${app.id}, 'ACCEPTED')" class="flex-1 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 border border-emerald-200 px-4 py-2 rounded-lg text-sm font-bold transition-colors">Accept</button>
-                                <button onclick="updateApplicationStatus(${app.id}, 'REJECTED')" class="flex-1 bg-white hover:bg-gray-100 text-gray-700 border border-gray-300 px-4 py-2 rounded-lg text-sm font-bold transition-colors">Reject</button>
+                                <button onclick="updateApplicationStatus(${app.id}, 'REJECTED')" class="flex-1 bg-white hover:bg-gray-100 text-slate-200 border border-gray-300 px-4 py-2 rounded-lg text-sm font-bold transition-colors">Reject</button>
                             ` : ''}
                         </div>
                     `;
@@ -464,19 +473,19 @@
     <!-- Mobile Bottom Navigation -->
     <nav id="mobileNav" class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-xl border-t border-white/50 shadow-[0_-10px_40px_rgba(0,0,0,0.08)] z-50 pb-safe">
         <div class="flex justify-around items-center p-2">
-            <a href="dashboard.html" id="nav-dashboard" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+            <a href="dashboard.html" id="nav-dashboard" class="mobile-nav-link flex flex-col items-center p-2 text-slate-500 hover:text-primary transition-colors">
                 <i class="fa-solid fa-chart-pie text-xl mb-1"></i>
                 <span class="text-[10px] font-bold">Home</span>
             </a>
-            <a href="labourers.html" id="nav-labourers" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+            <a href="labourers.html" id="nav-labourers" class="mobile-nav-link flex flex-col items-center p-2 text-slate-500 hover:text-primary transition-colors">
                 <i class="fa-solid fa-magnifying-glass text-xl mb-1"></i>
                 <span class="text-[10px] font-bold">Search</span>
             </a>
-            <a href="projects.html" id="nav-projects" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+            <a href="projects.html" id="nav-projects" class="mobile-nav-link flex flex-col items-center p-2 text-slate-500 hover:text-primary transition-colors">
                 <i class="fa-solid fa-briefcase text-xl mb-1"></i>
                 <span class="text-[10px] font-bold">Jobs</span>
             </a>
-            <a href="profile.html" id="nav-profile" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+            <a href="profile.html" id="nav-profile" class="mobile-nav-link flex flex-col items-center p-2 text-slate-500 hover:text-primary transition-colors">
                 <i class="fa-solid fa-user text-xl mb-1"></i>
                 <span class="text-[10px] font-bold">Profile</span>
             </a>
@@ -491,7 +500,7 @@
             const page = path.split('/').pop() || 'dashboard.html';
             const activeLink = document.querySelector(`.mobile-nav-link[href="${page}"]`);
             if(activeLink) {
-                activeLink.classList.remove('text-gray-400');
+                activeLink.classList.remove('text-slate-500');
                 activeLink.classList.add('text-primary');
             }
             
