@@ -12,10 +12,22 @@ async function login(event) {
         if (res.success) {
             window.location.href = 'pages/dashboard.html';
         } else {
-            alert(res.message);
+            const errorDiv = document.getElementById('loginError');
+            if (errorDiv) {
+                errorDiv.innerText = res.message;
+                errorDiv.classList.remove('hidden');
+            } else {
+                alert(res.message);
+            }
         }
     } catch (error) {
-        alert(error.message);
+        const errorDiv = document.getElementById('loginError');
+        if (errorDiv) {
+            errorDiv.innerText = error.message;
+            errorDiv.classList.remove('hidden');
+        } else {
+            alert(error.message);
+        }
     }
 }
 
