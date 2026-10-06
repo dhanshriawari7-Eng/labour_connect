@@ -66,7 +66,7 @@
         }
     </style>
 </head>
-<body class="bg-light text-gray-700 font-sans antialiased">
+<body class="bg-gradient-to-br from-indigo-50 via-white to-orange-50 min-h-screen text-gray-700 font-sans antialiased pb-20 md:pb-0 selection:bg-primary selection:text-white">
 
     <!-- Mobile Header -->
     <div class="md:hidden flex items-center justify-between p-4 border-b border-gray-200 bg-white sticky top-0 z-40">
@@ -76,15 +76,19 @@
             </div>
             <span class="font-bold text-gray-900">Labour<span class="text-primary">Connect</span></span>
         </div>
-        <button onclick="document.getElementById('sidebar').classList.toggle('open')" class="text-gray-600 text-xl">
+        <button onclick="document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebarOverlay').classList.remove('hidden'); setTimeout(()=>document.getElementById('sidebarOverlay').classList.add('opacity-100'), 10);" class="text-gray-600 text-xl">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
 
     <div class="flex h-screen overflow-hidden">
         
-        <!-- Sidebar -->
-        <aside id="sidebar" class="sidebar fixed md:relative w-64 h-full bg-white border-r border-gray-200 z-50 flex flex-col shadow-xl md:shadow-none">
+        
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-40 hidden md:hidden transition-opacity opacity-0" onclick="document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').classList.remove('opacity-100'); setTimeout(()=>document.getElementById('sidebarOverlay').classList.add('hidden'), 300);"></div>
+
+<!-- Sidebar -->
+        <aside id="sidebar" class="sidebar fixed md:relative w-64 h-full bg-white/80 backdrop-blur-2xl border-r border-white/50 z-50 flex flex-col shadow-[10px_0_40px_rgba(0,0,0,0.08)] md:shadow-none">
             <div class="p-6 hidden md:flex items-center gap-3">
                 <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shadow-md">
                     <i class="fa-solid fa-toolbox"></i>
@@ -131,7 +135,7 @@
                 </header>
 
                 <!-- Search Bar -->
-                <div class="search-panel rounded-2xl p-4 md:p-6 mb-10 flex flex-col md:flex-row gap-4">
+                <div class="search-panel bg-white/70 backdrop-blur-xl border border-white/60 rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] md:p-6 mb-10 flex flex-col md:flex-row gap-4">
                     <div class="flex-1 relative">
                         <i class="fa-solid fa-wrench absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
                         <input type="text" id="searchSkill" placeholder="Search by service (e.g. Electrician, Painter)" class="input-clean w-full rounded-xl pl-12 pr-4 py-3 text-sm">
@@ -249,5 +253,51 @@
             });
         }
     </script>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav id="mobileNav" class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-xl border-t border-white/50 shadow-[0_-10px_40px_rgba(0,0,0,0.08)] z-50 pb-safe">
+        <div class="flex justify-around items-center p-2">
+            <a href="dashboard.html" id="nav-dashboard" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+                <i class="fa-solid fa-chart-pie text-xl mb-1"></i>
+                <span class="text-[10px] font-bold">Home</span>
+            </a>
+            <a href="labourers.html" id="nav-labourers" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+                <i class="fa-solid fa-magnifying-glass text-xl mb-1"></i>
+                <span class="text-[10px] font-bold">Search</span>
+            </a>
+            <a href="projects.html" id="nav-projects" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+                <i class="fa-solid fa-briefcase text-xl mb-1"></i>
+                <span class="text-[10px] font-bold">Jobs</span>
+            </a>
+            <a href="profile.html" id="nav-profile" class="mobile-nav-link flex flex-col items-center p-2 text-gray-400 hover:text-primary transition-colors">
+                <i class="fa-solid fa-user text-xl mb-1"></i>
+                <span class="text-[10px] font-bold">Profile</span>
+            </a>
+        </div>
+    </nav>
+
+
+    <script>
+        // Set active mobile nav
+        document.addEventListener("DOMContentLoaded", () => {
+            const path = window.location.pathname;
+            const page = path.split('/').pop() || 'dashboard.html';
+            const activeLink = document.querySelector(`.mobile-nav-link[href="${page}"]`);
+            if(activeLink) {
+                activeLink.classList.remove('text-gray-400');
+                activeLink.classList.add('text-primary');
+            }
+            
+            // Hide Search tab if labourer
+            setTimeout(() => {
+                const labourerMenu = document.getElementById('labourerMenu');
+                if (labourerMenu && !labourerMenu.classList.contains('hidden')) {
+                    const searchNav = document.getElementById('nav-labourers');
+                    if (searchNav) searchNav.style.display = 'none';
+                }
+            }, 500);
+        });
+    </script>
+    
 </body>
 </html>
