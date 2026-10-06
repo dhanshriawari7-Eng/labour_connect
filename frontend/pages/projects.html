@@ -27,46 +27,40 @@
         }
     </script>
     <style>
-        .sidebar { transition: transform 0.3s ease; }
-        @media (max-width: 768px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.open { transform: translateX(0); }
-        }
         .side-link { transition: all 0.2s ease; }
         .side-link.active, .side-link:hover {
-            background: #EFF6FF;
-            color: #2563EB;
-            border-right: 3px solid #2563EB;
+            background: rgba(249, 115, 22, 0.1);
+            color: #F97316;
+            border-right: 3px solid #F97316;
         }
         .project-card {
-            background: #FFFFFF;
-            border: 1px solid #E5E7EB;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
             transition: all 0.3s ease;
         }
         .project-card:hover {
             transform: translateY(-4px);
-            border-color: #2563EB;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: #F97316;
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
         }
         .clean-form {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(16px);
             border: 1px solid rgba(255,255,255,0.1);
-
-            background: #FFFFFF;
-            border: 1px solid #E5E7EB;
         }
         .input-glass {
-            background: #F9FAFB;
-            border: 1px solid #E5E7EB;
-            color: #1F2937;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #e2e8f0;
             transition: border-color 0.2s;
         }
         .input-glass:focus {
-            border-color: #2563EB;
-            background: #FFFFFF;
+            border-color: #F97316;
+            background: rgba(255,255,255,0.08);
             outline: none;
         }
+        .input-glass::placeholder { color: #64748b; }
     </style>
 </head>
 <body class="bg-[#0B0F19] min-h-screen text-slate-300 font-sans antialiased pb-20 md:pb-0 selection:bg-primary selection:text-white relative">
