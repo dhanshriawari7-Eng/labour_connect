@@ -146,7 +146,7 @@
     <script src="js/api.js?v=3"></script>
     <script src="js/auth.js?v=3"></script>
     <script>
-        function toggleAuthForm(type) {
+        window.toggleAuthFormUI = function(type) {
             const loginForm = document.getElementById('loginForm');
             const registerForm = document.getElementById('registerForm');
             const tabLogin = document.getElementById('tab-login');
@@ -169,7 +169,7 @@
         }
 
         if (window.location.search.includes('register=true')) {
-            toggleAuthForm('register');
+            window.toggleAuthFormUI('register');
         }
         
         // Show errors correctly
