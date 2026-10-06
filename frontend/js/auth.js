@@ -23,7 +23,9 @@ async function login(event) {
             window.location.href = 'pages/dashboard.html';
         } else {
             if (errorDiv) {
-                errorDiv.innerText = res.message;
+                const span = errorDiv.querySelector('span');
+                if (span) span.innerText = res.message;
+                else errorDiv.innerText = res.message;
                 errorDiv.classList.remove('hidden');
             } else {
                 alert(res.message);
@@ -31,7 +33,9 @@ async function login(event) {
         }
     } catch (error) {
         if (errorDiv) {
-            errorDiv.innerText = error.message;
+            const span = errorDiv.querySelector('span');
+            if (span) span.innerText = error.message;
+            else errorDiv.innerText = error.message;
             errorDiv.classList.remove('hidden');
         } else {
             alert(error.message);

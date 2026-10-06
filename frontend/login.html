@@ -172,18 +172,7 @@
             window.toggleAuthFormUI('register');
         }
         
-        // Show errors correctly
-        const originalErrorShow = document.getElementById('loginError');
-        if (originalErrorShow) {
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    if (mutation.type === 'childList' && mutation.target.innerText) {
-                        mutation.target.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> <span>${mutation.target.innerText}</span>`;
-                    }
-                });
-            });
-            observer.observe(originalErrorShow, { childList: true });
-        }
+
     </script>
 </body>
 </html>
