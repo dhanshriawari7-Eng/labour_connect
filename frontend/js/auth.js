@@ -3,6 +3,16 @@ async function login(event) {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    
+    // Reset state
+    const errorDiv = document.getElementById('loginError');
+    if (errorDiv) errorDiv.classList.add('hidden');
+    
+    const originalBtnText = submitBtn.innerText;
+    submitBtn.innerText = 'Logging in...';
+    submitBtn.disabled = true;
+    submitBtn.classList.add('opacity-75');
 
     try {
         const res = await apiRequest('/auth/login', {
@@ -12,7 +22,6 @@ async function login(event) {
         if (res.success) {
             window.location.href = 'pages/dashboard.html';
         } else {
-            const errorDiv = document.getElementById('loginError');
             if (errorDiv) {
                 errorDiv.innerText = res.message;
                 errorDiv.classList.remove('hidden');
@@ -21,13 +30,16 @@ async function login(event) {
             }
         }
     } catch (error) {
-        const errorDiv = document.getElementById('loginError');
         if (errorDiv) {
             errorDiv.innerText = error.message;
             errorDiv.classList.remove('hidden');
         } else {
             alert(error.message);
         }
+    } finally {
+        submitBtn.innerText = originalBtnText;
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-75');
     }
 }
 
