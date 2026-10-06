@@ -1,6 +1,7 @@
 [build]
 builder = "NIXPACKS"
 buildCommand = "cd backend && ./mvnw clean package -DskipTests"
+nixpacksPlan = '{"phases":{"setup":{"nixPkgs":["jdk17","maven"]}}}'
 
 [deploy]
 startCommand = "java -jar backend/target/*.jar"
