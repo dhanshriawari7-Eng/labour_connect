@@ -1,5 +1,5 @@
 // Base URL for the Spring Boot backend
-const API_BASE_URL = 'https://labour-connect-api-e5sj.onrender.com/api';
+const API_BASE_URL = 'https://labourconnect-production.up.railway.app/api';
 
 /**
  * Global wrapper for API requests.

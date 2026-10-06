@@ -27,7 +27,8 @@ public class BackendApplication {
 							"http://localhost:8000", 
 							"http://127.0.0.1:5500", 
 							"http://localhost:5500", 
-							"https://dhanshriawari7-Eng.github.io"
+							"https://dhanshriawari7-Eng.github.io",
+							"https://labourconnect-production.up.railway.app"
 						) // Frontend origins
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 						.allowCredentials(true) // Crucial for sessions/cookies
