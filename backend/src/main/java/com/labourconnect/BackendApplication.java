@@ -23,7 +23,12 @@ public class BackendApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("http://localhost:8000", "https://dhanshriawari7-Eng.github.io") // Frontend origin
+						.allowedOrigins(
+							"http://localhost:8000", 
+							"http://127.0.0.1:5500", 
+							"http://localhost:5500", 
+							"https://dhanshriawari7-Eng.github.io"
+						) // Frontend origins
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 						.allowCredentials(true) // Crucial for sessions/cookies
 						.allowedHeaders("*");
